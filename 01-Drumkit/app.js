@@ -6,11 +6,6 @@ function clickHandler(e) {
   audio.play();
 }
 
-// grid_items.forEach((eachItem, index, array) => {
-//   eachItem.id = "grid-item" + (index + 1);
-//   eachItem.addEventListener("click", clickHandler);
-// });
-
 //forms closure and can be defined elsewhere
 function callBack(eachItem, index, grid_items) {
   eachItem.id = "grid-item" + (index + 1);
@@ -20,5 +15,10 @@ function callBack(eachItem, index, grid_items) {
   eachItem.addEventListener("click", clickHandler);
   // eachItem.addEventListener("keypress", clickHandler);
 }
+
+window.addEventListener("keydown", function (e) {
+  let audio = new Audio(`sounds/sound${e.key}.wav`);   
+  audio.play()
+});
 
 grid_items.forEach(callBack);
